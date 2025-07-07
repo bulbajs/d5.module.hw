@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title%}
+article_list
+{% endblock title%}
+
+{% block content %}
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить </button>
+</form>
+
+{% endblock content %}

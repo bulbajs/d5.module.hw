@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title%}
+Удаление статьи
+{% endblock title%}
+
+{% block content %}
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h2>Вы точно хотите удалить?</h2>
+    <h2>Название: {{ object.title }}</h2>
+    <p>Описание: {{ object.text }}</p>
+    <p>Категория: {{ object.get_categoryType_display }}</p>
+    <p>Автор: {{ object.postAuthor.authorUser.username }}</p>
+    <p>Дата публикации: {{ object.time_in_Post }} </p>
+    <input type="submit" value="Удалить" />
+</form>
+
+{% endblock content %}
