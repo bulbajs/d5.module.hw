@@ -1,0 +1,78 @@
+[
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "127.0.0.1",
+    "name": "example.com"
+  }
+},
+{
+  "model": "socialaccount.socialapp",
+  "pk": 2,
+  "fields": {
+    "provider": "yandex",
+    "provider_id": "",
+    "name": "YandexCo",
+    "client_id": "0a21799837724fa7b367fe5b6d806a73",
+    "secret": "9dca7b2a907f4000917026c0052130a8",
+    "key": "",
+    "settings": {},
+    "sites": [
+      1
+    ]
+  }
+},
+{
+  "model": "socialaccount.socialaccount",
+  "pk": 2,
+  "fields": {
+    "user": 12,
+    "provider": "yandex",
+    "uid": "198512216",
+    "last_login": "2025-07-07T15:00:20.639Z",
+    "date_joined": "2025-07-07T13:18:32.259Z",
+    "extra_data": {
+      "id": "198512216",
+      "sex": "male",
+      "login": "lapetrla",
+      "psuid": "1.AAAAAA.QiMLpje2To8qB5mJ1LoIjQ.nW_v9r5XQ4FiRTPMx3S-iw",
+      "emails": [
+        "lapetrla@yandex.ru"
+      ],
+      "client_id": "0a21799837724fa7b367fe5b6d806a73",
+      "last_name": "Петров",
+      "real_name": "Петр Петров",
+      "first_name": "Петр",
+      "display_name": "lapetrla",
+      "default_email": "lapetrla@yandex.ru"
+    }
+  }
+},
+{
+  "model": "socialaccount.socialaccount",
+  "pk": 3,
+  "fields": {
+    "user": 13,
+    "provider": "yandex",
+    "uid": "1130000025183341",
+    "last_login": "2025-07-07T14:48:16.094Z",
+    "date_joined": "2025-07-07T13:25:54.541Z",
+    "extra_data": {
+      "id": "1130000025183341",
+      "sex": "male",
+      "login": "kav@promventholod.ru",
+      "psuid": "1.AAAAAA.H6Qfr-HfONkKs87Y4zXrbw.SpIU8twe7cl0Lkncfs2QrA",
+      "emails": [
+        "kav@promventholod.ru"
+      ],
+      "client_id": "0a21799837724fa7b367fe5b6d806a73",
+      "last_name": "Купцов",
+      "real_name": "Артём Купцов",
+      "first_name": "Артём",
+      "display_name": "Артём",
+      "default_email": "kav@promventholod.ru"
+    }
+  }
+}
+]

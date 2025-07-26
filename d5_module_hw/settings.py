@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import environ
 import os
 from pathlib import Path
 
@@ -16,14 +17,24 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bd-@!8mh_xhn#t#_qe8(a&w5q0z2ls)7y0m&ubi)k9-(5@eq04'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = 'django-insecure-bd-@!8mh_xhn#t#_qe8(a&w5q0z2ls)7y0m&ubi)k9-(5@eq04'
+#
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -94,17 +105,21 @@ WSGI_APPLICATION = 'd5_module_hw.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5hw_db',
-        'USER': 'd5hw_user',
-        'PASSWORD': 'd5',
-        'HOST': 'localhost',
-        'PORT': '5432',  # Обычно стандартный порт, его можно не менять
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
         'OPTIONS': {
             'client_encoding': 'UTF8',
         },
     }
 }
 
+
+SOCIAL_AUTH_YANDEX_KEY = env('SOCIAL_AUTH_YANDEX_KEY')
+SOCIAL_AUTH_YANDEX_SECRET = env('SOCIAL_AUTH_YANDEX_SECRET')
+SOCIAL_AUTH_YANDEX_CALLBACK_URL = env('SOCIAL_AUTH_YANDEX_CALLBACK_URL')
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

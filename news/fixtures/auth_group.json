@@ -1,0 +1,13 @@
+﻿[
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "authors",
+    "permissions": [
+      53,
+      54
+    ]
+  }
+}
+]
